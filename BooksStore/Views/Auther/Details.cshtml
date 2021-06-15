@@ -1,0 +1,31 @@
+﻿@model BooksStore.Models.Auther
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+
+
+<div>
+    <h4>Auther</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.id)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.id)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.fullName)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.fullName)
+        </dd>
+    </dl>
+</div>
+<div>
+    
+    <a asp-action="Index" class="btn btn-outline-info">Back to List</a>
+    <a asp-action="edit" asp-route-id="@Model.id" class="btn btn-info">Edit</a>
+</div>

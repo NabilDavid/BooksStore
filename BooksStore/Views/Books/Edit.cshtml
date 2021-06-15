@@ -1,0 +1,56 @@
+﻿@model BooksStore.Models.ViewModel.AutherBookViewModel
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h2>Edit</h2>
+
+<h4>AutherBookViewModel</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit" enctype="multipart/form-data">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Bookid" class="control-label"></label>
+                <input readonly asp-for="Bookid" class="form-control" />
+                <span asp-validation-for="Bookid" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="title" class="control-label"></label>
+                <input asp-for="title" class="form-control" />
+                <span asp-validation-for="title" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="description" class="control-label"></label>
+                <input asp-for="description" class="form-control" />
+                <span asp-validation-for="description" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="file" class="control-label"></label>
+                    <input type="file" name="File" asp-for="file" class="form-control" />
+                    <span asp-validation-for="file" class="text-danger"></span>
+                    <img  class="img-thumbnail" style="width:100px; height:100px; "src="~/uploads/@Model.imageUrl" />
+                </div>
+                    <input type="hidden" asp-for="imageUrl" class="form-control" />
+                   
+               
+                <div class="form-group">
+                    <label asp-for="Autherid" class="control-label"></label>
+                    <select asp-for="Autherid" asp-items="@(new SelectList(Model.authers,"id","fullName"))" class="form-control"></select>
+                    <span asp-validation-for="Autherid" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <input type="submit" value="Save" class="btn btn-outline-info" />
+                    <a asp-action="Index" class="btn btn-primary">Back to List</a>
+                </div>
+</form>
+    </div>
+</div>
+
+
+
+@section Scripts {
+    <partial name="validation" />
+}
